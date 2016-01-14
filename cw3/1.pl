@@ -9,7 +9,17 @@
 #
 use strict;
 use warnings;
+use Scalar::Util qw(looks_like_number);
+
+my @lista;
 
 while(<>) {
-	print $_;
+	chomp $_;
+	if( looks_like_number($_) ) {
+		push @lista, $_;
+	}
 }
+for (sort { $a <=> $b } @lista) {
+	printf("%25f\n",$_);
+}
+

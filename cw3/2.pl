@@ -20,10 +20,7 @@ my %better_last_name;
 my $key = "null";
 my $value;
 my $counter = 0;
-my %last_name = qw{
-	tomasz nowak anna Nowak Jan Zuba monika zuba
-	Anna-Maria Zuba PATRYCJA NOWAK
-};
+my %last_name = qw{ tomasz nowak anna Nowak Jan Zuba monika zuba Anna-Maria Zuba PATRYCJA NOWAK };
 sub comparator { 
 	if($better_last_name{$a} cmp $better_last_name{$b}) { return 0; }
 	if($better_last_name{$a} > $better_last_name{$b}) { return 1; }
@@ -41,5 +38,5 @@ for (%last_name) {
 }
 
 for (sort comparator keys %better_last_name) {
-	printf("%s\n",$_);
+	printf("%s %s\n",$_, $better_last_name{$_});
 }
